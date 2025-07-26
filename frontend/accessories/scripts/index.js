@@ -166,3 +166,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial load
     renderProducts();
 });
+
+
+
+
+
+
+
