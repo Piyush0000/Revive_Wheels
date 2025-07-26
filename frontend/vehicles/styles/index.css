@@ -1,0 +1,281 @@
+/* Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Header Styling - Bewakoof Style */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header button {
+    background: #519c6b;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+header button:hover {
+    background: #519c6b;
+    transform: scale(1.05);
+}
+
+/* Marketplace Grid Layout */
+#sell-buy {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 5%;
+    margin-top: 20px;
+}
+
+/* Card Styling - Bewakoof Inspired */
+.card {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 0;
+    background: white;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Sale Badge */
+.card::after {
+    content: 'EV SPECIAL';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #519c6b;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Car image styling */
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    padding: 15px;
+    background: #f5f5f5;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+/* Card Body */
+.card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Price styling */
+.card .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #519c6b;
+    margin-bottom: 5px;
+}
+
+/* Car model name styling */
+.card .card-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #535766;
+    margin-bottom: 8px;
+    flex-grow: 1;
+}
+
+/* Year and km styling */
+.card span {
+    display: block;
+    color: #7e818c;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+/* Location styling */
+.card .card-body p {
+    color: #282c3f;
+    font-size: 12px;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+/* Date listed styling */
+.card > p:last-child {
+    font-size: 10px;
+    color: #94969f;
+    text-align: center;
+    padding: 8px 0;
+    margin: 0;
+    border-top: 1px solid #f5f5f6;
+    background: #fafafa;
+}
+
+/* Search Bar Styling */
+.search-container {
+    padding: 20px 5%;
+    background: #519c6b;
+    display: flex;
+    justify-content: center;
+}
+
+.search-container input {
+    width: 60%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 14px;
+}
+
+.search-container button {
+    padding: 12px 20px;
+    background: #000;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Categories */
+.categories {
+    display: flex;
+    overflow-x: auto;
+    padding: 15px 5%;
+    gap: 15px;
+    background: white;
+    margin-bottom: 20px;
+}
+
+.categories::-webkit-scrollbar {
+    display: none;
+}
+
+.category-item {
+    padding: 8px 15px;
+    background: #f5f5f6;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.category-item:hover, .category-item.active {
+    background: #519c6b;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background: #2a2a2a;
+    color: white;
+    padding: 40px 5%;
+    margin-top: 50px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.footer-column h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: #519c6b;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: #eaeaec;
+    cursor: pointer;
+}
+
+.footer-column li:hover {
+    color: #519c6b;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #sell-buy {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .card-img-top {
+        height: 150px;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}

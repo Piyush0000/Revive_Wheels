@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EV Conversion - Revive Wheels</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="ev_conversion_form.css" />
+  </head>
+  <body>
+    <!-- Header/Navigation -->
+    <!-- <header class="header" id="header">
+      <div class="logo-container">
+        <img src="logo.jpeg" alt="Logo" />
+        <h3>Revive Wheels</h3>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" id="tab-style">Home</a></li>
+          <li>
+            <a href="ev_coversion_ui.html" class="active" id="tab-style">EV Conversion</a>
+          </li>
+          <li><a href="market.html" id="tab-style">Buy or Sell</a></li>
+          <li><a href="./scrappage/index.html" id="tab-style">Scrappage Network</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button><a href="./signin.html">Login</a></button>
+        <button><a href="./signup.html">SignUp</a></button>
+      </div>
+    </header> -->
+
+    <div id="auth-container" class="auth-buttons"></div>
+    <header>
+      <div class="navbar">
+        <div class="logo-container">
+          <img src="logo.jpeg" alt="Logo" />
+          <h3 class="brand-name">Revive Wheels</h3>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ev_coversion_ui.html" class="active">EV Conversion</a></li>
+            <li><a href="market.html">Buy or Sell</a></li>
+            <li><a href="./scrappage/pickup.html">Scrappage Network</a></li>
+          </ul>
+        </nav>
+        <div class="auth-buttons">
+          <a href="./signin.html" class="login-btn">Login</a>
+          <a href="./signup.html" class="signup-btn">SignUp</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Convert Your Car to Electric</h1>
+      <p>
+        Breathe new life into your existing vehicle with our professional EV
+        conversion services. Save money, reduce emissions, and enjoy modern EV
+        benefits.
+      </p>
+
+      <div class="search-container">
+        <input type="text" placeholder="Search for conversion services..." />
+        <button type="button"><i class="fas fa-search"></i></button>
+      </div>
+    </section>
+
+    <!-- Application Form -->
+    <div class="form-container">
+      <form id="evConversionForm">
+        <div class="form-content">
+          <div class="user-details">
+            <h1>Owner Details</h1>
+            <label for="username">Name</label>
+            <input
+              id="username"
+              type="text"
+              placeholder="Enter Name"
+              required
+            />
+
+            <label for="userphone">Phone Number</label>
+            <input
+              id="userphone"
+              type="tel"
+              placeholder="Enter Phone Number"
+              required
+            />
+
+            <label for="userEmail">Email Address</label>
+            <input
+              id="userEmail"
+              type="email"
+              placeholder="Enter Email Address"
+              required
+            />
+
+            <label for="userAadhar">Aadhar Number</label>
+            <input id="userAadhar" placeholder="Enter Aadhar Number" required />
+          </div>
+
+          <div class="video-section">
+            <img
+              src="https://img.freepik.com/free-vector/electric-car-concept-illustration_114360-1161.jpg"
+              alt="EV Conversion Illustration"
+            />
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h1>Vehicle Details</h1>
+          <label for="vehicleNo">Vehicle No.</label>
+          <input
+            id="vehicleNo"
+            type="text"
+            placeholder="Enter Vehicle No."
+            required
+          />
+
+          <label for="vehicleRC">Vehicle RC</label>
+          <input id="vehicleRC" type="file" accept=".pdf,.jpg,.png" />
+
+          <label for="vehicleModel">Vehicle Model</label>
+          <input
+            id="vehicleModel"
+            type="text"
+            placeholder="Enter Vehicle Model"
+            required
+          />
+
+          <label for="vehicleYear">Manufacturing Year</label>
+          <input
+            id="vehicleYear"
+            type="number"
+            placeholder="Enter Manufacturing Year"
+            min="1900"
+            max="2023"
+            required
+          />
+
+          <label for="vehiclePhotos">Vehicle Photos</label>
+          <input id="vehiclePhotos" type="file" accept="image/*" multiple />
+        </div>
+
+        <div class="form-section">
+          <h1>Conversion Requirements</h1>
+
+          <label for="conversionType">Conversion Type</label>
+          <select id="conversionType" required>
+            <option value="">Select Conversion Type</option>
+            <option value="full">Full EV Conversion</option>
+            <option value="hybrid">Hybrid Conversion</option>
+            <option value="partial">Partial EV Conversion</option>
+          </select>
+
+          <label for="batteryRange">Desired Battery Range (km)</label>
+          <input
+            id="batteryRange"
+            type="range"
+            min="100"
+            max="500"
+            step="50"
+            value="250"
+          />
+          <div id="rangeValue">250 km</div>
+
+          <label for="conversionBudget">Estimated Budget (₹)</label>
+          <input
+            id="conversionBudget"
+            type="number"
+            placeholder="Enter your budget"
+            min="0"
+            required
+          />
+
+          <label for="additionalRequirements">Additional Requirements</label>
+          <textarea
+            id="additionalRequirements"
+            placeholder="Enter any specific requirements or questions"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" onclick=" ">Submit Application</button>
+      </form>
+    </div>
+
+    <!-- Process Section -->
+    <section class="process-section">
+      <div class="process-container">
+        <div class="process-header">
+          <h2 class="process-title">Our EV Conversion Process</h2>
+          <p class="process-description">
+            Converting your conventional vehicle to electric is simpler than you
+            think. Our certified technicians follow a meticulous process to
+            ensure safety, performance, and reliability.
+          </p>
+        </div>
+
+        <div class="process-steps">
+          <div class="step-item">
+            <span class="step-icon"><i class="fas fa-check-circle"></i></span>
+            <span class="step-text">Comprehensive vehicle assessment</span>
+          </div>
+          <div class="step-item">
+            <span class="step-icon"><i class="fas fa-check-circle"></i></span>
+            <span class="step-text">Customized conversion plan</span>
+          </div>
+          <div class="step-item">
+            <span class="step-icon"><i class="fas fa-check-circle"></i></span>
+            <span class="step-text">High-quality components installation</span>
+          </div>
+          <div class="step-item">
+            <span class="step-icon"><i class="fas fa-check-circle"></i></span>
+            <span class="step-text">Rigorous testing and certification</span>
+          </div>
+          <div class="step-item">
+            <span class="step-icon"><i class="fas fa-check-circle"></i></span>
+            <span class="step-text">Complete documentation support</span>
+          </div>
+        </div>
+
+        <a href="ev_coversion_ui.html" class="view-packages-btn">
+          <i class="fas fa-bolt"></i> View Conversion Packages
+        </a>
+      </div>
+    </section>
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/auth.js"></script> 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const rangeSlider = document.getElementById("batteryRange");
+    const rangeValue = document.getElementById("rangeValue");
+    const form = document.getElementById("evConversionForm");
+    const submitBtn = form.querySelector('.submit-btn');
+
+    // --- Initialize Supabase Client ---
+    const supabaseUrl = "https://prwgvnyjkeeblrliaffy.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InByd2d2bnlqa2VlYmxybGlhZmZ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMzNDIxMzQsImV4cCI6MjA2ODkxODEzNH0.1yWTyG29KCrWpNNovBssRHLcHcvpdE8IbndtNAquSVU";
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+    
+    rangeSlider.addEventListener("input", function () {
+      rangeValue.textContent = this.value + " km";
+    });
+
+    // --- Form submission handler ---
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        alert("Please fill all required fields correctly.");
+        return;
+      }
+      
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      try {
+        // --- Prepare data for Supabase ---
+        const submissionData = {
+          name: document.getElementById("username").value,
+          phone: document.getElementById("userphone").value,
+          email: document.getElementById("userEmail").value,
+          aadhar_number: document.getElementById("userAadhar").value,
+          vehicle_number: document.getElementById("vehicleNo").value,
+          vehicle_model: document.getElementById("vehicleModel").value,
+          manufacturing_year: document.getElementById("vehicleYear").value,
+          conversion_type: document.getElementById("conversionType").value,
+          desired_range_km: document.getElementById("batteryRange").value,
+          budget_inr: document.getElementById("conversionBudget").value,
+          additional_requirements: document.getElementById("additionalRequirements").value,
+        };
+        
+        // --- Insert data into Supabase table ---
+        const { data, error } = await supabase
+          .from('ev_conversion_applications')
+          .insert([submissionData]);
+          
+        if (error) {
+          throw error;
+        }
+
+        alert("Application submitted successfully!");
+        window.location.href = 'submit.html'; // Redirect to a confirmation page
+
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Error submitting form: " + error.message);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Application';
+      }
+    });
+  });
+</script>
+  </body>
+</html>

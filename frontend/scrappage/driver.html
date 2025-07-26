@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revive Wheels - Pickup Status</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <style>
+        :root {
+            --primary-color: #27ae60;
+            --secondary-color: #2ecc71;
+            --light-gray: #f9f9f9;
+            --dark-text: #333;
+            --light-text: #666;
+        }
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+        }
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 18px; max-width: 800px; margin: 0 auto;
+        }
+        .container {
+            max-width: 1000px; margin: 30px auto;
+            background-color: white; border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .panel-header {
+            background: var(--light-gray);
+            color: var(--dark-text);
+            padding: 20px 30px;
+            border-bottom: 1px solid #eee;
+        }
+        .panel-header h2 {
+            font-size: 24px;
+        }
+        .main-details {
+            padding: 30px;
+        }
+
+        /* --- Status Tracker --- */
+        .status-tracker {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .status-tracker::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: #e0e0e0;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        .status-tracker .progress-bar {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 4px;
+            background-color: var(--primary-color);
+            transform: translateY(-50%);
+            z-index: 2;
+            width: 0%; /* Will be updated by JS */
+            transition: width 0.5s ease;
+        }
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100px;
+            z-index: 3;
+            position: relative;
+        }
+        .step .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 10px;
+            transition: background-color 0.5s ease;
+            border: 4px solid white;
+        }
+        .step .label {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--light-text);
+        }
+        .step.completed .icon, .step.active .icon {
+            background-color: var(--primary-color);
+        }
+        .step.active .label {
+            color: var(--dark-text);
+        }
+
+        /* --- Driver & Details --- */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .driver-profile {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .profile-image {
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .profile-info h3 {
+            font-size: 22px; color: var(--dark-text); margin-bottom: 10px;
+        }
+        .profile-info p {
+            color: var(--light-text); margin-bottom: 5px;
+        }
+        .action-buttons {
+            margin-top: 15px; display: flex; gap: 10px;
+        }
+        .action-buttons .btn {
+            background-color: var(--primary-color); color: white; border: none;
+            padding: 10px 15px; border-radius: 5px; cursor: pointer;
+            font-weight: 600; display: flex; align-items: center; gap: 8px;
+        }
+        .action-buttons .btn.cancel {
+            background-color: #e74c3c;
+        }
+        
+        .otp-card {
+            background-color: #e9f5e9;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .otp-card p {
+            margin: 0 0 10px 0;
+            color: var(--dark-text);
+        }
+        .otp-code {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            color: var(--primary-color);
+        }
+
+        .detail-card {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid var(--primary-color);
+            margin-bottom: 20px;
+        }
+        .detail-card h3 {
+            color: var(--primary-color); margin-bottom: 15px; font-size: 18px;
+        }
+        .detail-row {
+            display: flex; margin-bottom: 10px; align-items: center;
+        }
+        .detail-label {
+            width: 150px; font-weight: bold; color: #555;
+        }
+        .detail-value {
+            flex: 1; color: var(--dark-text);
+        }
+        .map-placeholder {
+            background: url('https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/w_2560%2Cc_limit/GoogleMapTA.jpg') no-repeat center center;
+            background-size: cover;
+            height: 200px; border-radius: 8px;
+            position: relative;
+        }
+        .map-placeholder .track-btn {
+            position: absolute; bottom: 15px; left: 15px;
+            background: var(--primary-color); color: white; padding: 10px 20px;
+            border: none; border-radius: 20px; font-weight: bold; cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .details-grid { grid-template-columns: 1fr; }
+            .status-tracker { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .status-tracker::before, .status-tracker .progress-bar {
+                left: 25px; top: 0; bottom: 0; width: 4px; height: 100%;
+            }
+            .step { flex-direction: row; text-align: left; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Your Vehicle Pickup is Confirmed!</h1>
+        <p>Our driver is on the way. You can track the status of your pickup below.</p>
+    </div>
+    
+    <div class="container">
+        <div class="panel-header">
+            <h2>Pickup Status</h2>
+        </div>
+        
+        <div class="main-details">
+            <div class="status-tracker">
+                <div class="progress-bar" id="progress-bar"></div>
+                <div class="step active" id="step-1">
+                    <div class="icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="label">Request Confirmed</div>
+                </div>
+                <div class="step" id="step-2">
+                    <div class="icon"><i class="fa-solid fa-user-check"></i></div>
+                    <div class="label">Driver Assigned</div>
+                </div>
+                <div class="step" id="step-3">
+                    <div class="icon"><i class="fa-solid fa-truck-fast"></i></div>
+                    <div class="label">Driver En Route</div>
+                </div>
+                <div class="step" id="step-4">
+                    <div class="icon"><i class="fa-solid fa-box"></i></div>
+                    <div class="label">Vehicle Picked Up</div>
+                </div>
+            </div>
+
+            <div class="details-grid">
+                <div>
+                    <div class="detail-card">
+                        <h3>Driver & Verification</h3>
+                        <div class="driver-profile">
+                            <img src="https://xsgames.co/randomusers/assets/avatars/male/46.jpg" alt="Driver" class="profile-image">
+                            <div class="profile-info">
+                                <h3>Rajesh Kumar</h3>
+                                <p><strong>Towing Vehicle:</strong> DL 1M AA 5555</p>
+                                <div class="action-buttons">
+                                    <button class="btn"><i class="fa-solid fa-phone"></i> Call Driver</button>
+                                    <button class="btn cancel"><i class="fa-solid fa-times"></i> Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="otp-card">
+                        <p>Share this OTP with the driver for verification:</p>
+                        <div class="otp-code" id="otp-code">----</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="detail-card">
+                        <h3>Pickup Details</h3>
+                        <div class="detail-row">
+                            <div class="detail-label">Vehicle</div>
+                            <div class="detail-value">2014 Maruti Suzuki Alto 800</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Pickup Date</div>
+                            <div class="detail-value">26 July, 2025</div>
+                        </div>
+                        <div class="detail-row">
+                            <div class="detail-label">Pickup Address</div>
+                            <div class="detail-value">B-7, Vasant Kunj, New Delhi - 110070</div>
+                        </div>
+                         <div class="detail-row">
+                            <div class="detail-label">Destination</div>
+                            <div class="detail-value">Mayapuri Scrap Yard, New Delhi</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="detail-card" style="margin-top: 30px;">
+                <h3>Live Tracking</h3>
+                <div class="map-placeholder">
+                    <button class="track-btn">Track Live on Map</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2025 Revive Wheels - Hassle-free vehicle scrappage services.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Generate and display OTP
+            const otpCodeElement = document.getElementById('otp-code');
+            const randomOtp = Math.floor(1000 + Math.random() * 9000);
+            otpCodeElement.textContent = randomOtp;
+
+            // --- Live Status Simulation ---
+            const steps = [
+                { id: 'step-1', delay: 0 },
+                { id: 'step-2', delay: 3000 },
+                { id: 'step-3', delay: 8000 },
+                { id: 'step-4', delay: 15000 },
+            ];
+            
+            const progressBar = document.getElementById('progress-bar');
+            const totalSteps = steps.length - 1;
+
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    // Mark previous steps as completed
+                    for(let i = 0; i < index; i++) {
+                        document.getElementById(steps[i].id).classList.add('completed');
+                    }
+                    
+                    // Mark current step as active
+                    const currentStep = document.getElementById(step.id);
+                    if (currentStep) {
+                        currentStep.classList.add('active');
+                    }
+                    
+                    // Update progress bar width
+                    const progressPercentage = (index / totalSteps) * 100;
+                    progressBar.style.width = `${progressPercentage}%`;
+
+                }, step.delay);
+            });
+        });
+    </script>
+</body>
+</html>

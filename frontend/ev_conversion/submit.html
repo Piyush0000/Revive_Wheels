@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Submission Confirmed | Revive Wheels</title>
+    <style>
+      :root {
+        --primary-green: #2ecc71;
+        --dark-green: #27ae60;
+        --light-green: #a3e4bc;
+        --very-light-green: #eafaf1;
+        --accent-dark: #2c3e50;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f8f9fa;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .confirmation-card {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(46, 204, 113, 0.15);
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 30px;
+        animation: slideIn 0.5s ease-out;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .card-header {
+        background-color: var(--primary-green);
+        padding: 25px 30px;
+        text-align: center;
+        position: relative;
+      }
+
+      .logo {
+        width: 180px;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+      }
+
+      .logo:hover {
+        transform: scale(1.05);
+      }
+
+      .card-header h1 {
+        color: white;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .card-header p {
+        color: white;
+        opacity: 0.9;
+        font-size: 16px;
+      }
+
+      .card-body {
+        padding: 40px 30px;
+        text-align: center;
+      }
+
+      .success-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: var(--very-light-green);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 25px;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4);
+        }
+        70% {
+          transform: scale(1.05);
+          box-shadow: 0 0 0 10px rgba(46, 204, 113, 0);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+        }
+      }
+
+      .success-icon svg {
+        width: 40px;
+        height: 40px;
+        fill: var(--primary-green);
+      }
+
+      .card-body h2 {
+        color: var(--accent-dark);
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+
+      .card-body p {
+        color: #555;
+        font-size: 17px;
+        margin-bottom: 25px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .details-box {
+        background-color: var(--very-light-green);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+        text-align: left;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .details-box:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(46, 204, 113, 0.2);
+      }
+
+      .details-box h3 {
+        color: var(--dark-green);
+        font-size: 18px;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+
+      .detail-item {
+        display: flex;
+        margin-bottom: 10px;
+        padding: 8px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+      }
+
+      .detail-item:hover {
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+
+      .detail-label {
+        font-weight: 500;
+        width: 150px;
+        color: var(--accent-dark);
+      }
+
+      .detail-value {
+        color: #333;
+        flex: 1;
+      }
+
+      .button {
+        display: inline-block;
+        background-color: var(--primary-green);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .button:hover {
+        background-color: var(--dark-green);
+        transform: translateY(-2px);
+        box-shadow: 0 7px 15px rgba(46, 204, 113, 0.4);
+      }
+
+      .button::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%);
+        transform-origin: 50% 50%;
+      }
+
+      .button:focus:not(:active)::after {
+        animation: ripple 1s ease-out;
+      }
+
+      @keyframes ripple {
+        0% {
+          transform: scale(0, 0);
+          opacity: 0.5;
+        }
+        100% {
+          transform: scale(100, 100);
+          opacity: 0;
+        }
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 40px;
+        color: #777;
+        font-size: 14px;
+        animation: fadeIn 1s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .footer a {
+        color: var(--dark-green);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      .footer a:hover {
+        color: var(--primary-green);
+      }
+
+      .leaf-decoration {
+        position: absolute;
+        opacity: 0.1;
+        z-index: 0;
+        transition: transform 0.3s ease;
+      }
+
+      .leaf-top-right {
+        top: -50px;
+        right: -50px;
+        transform: rotate(45deg);
+        width: 150px;
+      }
+
+      .leaf-bottom-left {
+        bottom: -70px;
+        left: -70px;
+        transform: rotate(135deg);
+        width: 180px;
+      }
+
+      .confirmation-card:hover .leaf-top-right {
+        transform: rotate(55deg) scale(1.1);
+      }
+
+      .confirmation-card:hover .leaf-bottom-left {
+        transform: rotate(145deg) scale(1.1);
+      }
+
+      .card-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .copy-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 8px;
+        padding: 4px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+      }
+
+      .copy-button:hover {
+        background-color: rgba(46, 204, 113, 0.1);
+      }
+
+      .copy-button svg {
+        width: 16px;
+        height: 16px;
+        fill: var(--dark-green);
+      }
+
+      .tooltip {
+        position: absolute;
+        background: var(--accent-dark);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .tooltip.show {
+        opacity: 1;
+      }
+
+      @media (max-width: 768px) {
+        .card-header {
+          padding: 20px;
+        }
+
+        .card-body {
+          padding: 30px 20px;
+        }
+
+        .detail-item {
+          flex-direction: column;
+          margin-bottom: 15px;
+        }
+
+        .detail-label {
+          width: 100%;
+          margin-bottom: 5px;
+        }
+
+        .copy-button {
+          margin-top: 5px;
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="confirmation-card">
+        <div class="card-header">
+          <svg
+            class="leaf-decoration leaf-top-right"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,18.5h4A7.5,7.5,0,0,0,19.5,11V8H17Z"
+              fill="white"
+            ></path>
+          </svg>
+
+          <div class="card-content">
+            <h1>EV Conversion Request Submitted</h1>
+            <p>Your journey to sustainable driving has begun.</p>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+              />
+            </svg>
+          </div>
+
+          <h2>Thank You for Choosing Revive Wheels!</h2>
+          <p>
+            Your EV conversion application has been successfully submitted. Our
+            technical team will review your request and get back to you within
+            the next 48 hours.
+          </p>
+
+          <div class="details-box">
+            <h3>Request Details</h3>
+            <div class="detail-item">
+              <div class="detail-label">Reference Number:</div>
+              <div class="detail-value">
+                <span id="referenceNumber">RW-EV-25041</span>
+                <button class="copy-button" onclick="copyReferenceNumber()" title="Copy reference number">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">Submission Date:</div>
+              <div class="detail-value" id="submissionDate"></div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">Response Expected:</div>
+              <div class="detail-value" id="responseDate"></div>
+            </div>
+          </div>
+
+          <p>
+            We'll contact you soon with the next steps of your vehicle's journey
+            towards becoming eco-friendly. Feel free to contact us if you have
+            any questions.
+          </p>
+
+          <a href="#" class="button" id="trackButton">Track Your Application</a>
+        </div>
+
+        <svg
+          class="leaf-decoration leaf-bottom-left"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,18.5h4A7.5,7.5,0,0,0,19.5,11V8H17Z"
+            fill="white"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="footer">
+        <p>
+          &copy; 2025 Revive Wheels. All rights reserved. |
+          <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a>
+        </p>
+      </div>
+    </div>
+
+    <div id="tooltip" class="tooltip">Copied!</div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeConfirmationPage();
+      });
+
+      function initializeConfirmationPage() {
+        generateReferenceNumber();
+        setDates();
+        initializeTrackButton();
+        saveSubmissionDetails();
+      }
+
+      function generateReferenceNumber() {
+        const randomDigits = Math.floor(10000 + Math.random() * 90000);
+        const referenceNumber = `RW-EV-${randomDigits}`;
+        document.getElementById('referenceNumber').textContent = referenceNumber;
+      }
+
+      function setDates() {
+        const now = new Date();
+        const responseTime = new Date(now.getTime() + 48 * 60 * 60 * 1000);
+
+        const dateOptions = { year: "numeric", month: "long", day: "numeric" };
+        const dateTimeOptions = { 
+          year: "numeric", 
+          month: "long", 
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit"
+        };
+
+        document.getElementById('submissionDate').textContent = now.toLocaleDateString("en-US", dateOptions);
+        document.getElementById('responseDate').textContent = responseTime.toLocaleDateString("en-US", dateTimeOptions);
+      }
+
+      function initializeTrackButton() {
+        const trackButton = document.getElementById('trackButton');
+        if (trackButton) {
+          trackButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            const referenceNumber = document.getElementById('referenceNumber').textContent;
+            
+            // Show tracking modal or redirect to tracking page
+            showTrackingInfo(referenceNumber);
+          });
+        }
+      }
+
+      function showTrackingInfo(referenceNumber) {
+        // For demo purposes, show an alert
+        alert(`Tracking application ${referenceNumber}\n\nStatus: Under Review\nNext Update: Within 48 hours\n\nFull tracking functionality will be implemented in the production version.`);
+      }
+
+      function copyReferenceNumber() {
+        const referenceNumber = document.getElementById('referenceNumber').textContent;
+        navigator.clipboard.writeText(referenceNumber).then(() => {
+          showTooltip();
+        });
+      }
+
+      function showTooltip() {
+        const tooltip = document.getElementById('tooltip');
+        const copyButton = document.querySelector('.copy-button');
+        const rect = copyButton.getBoundingClientRect();
+        
+        tooltip.style.left = `${rect.left}px`;
+        tooltip.style.top = `${rect.bottom + 5}px`;
+        tooltip.classList.add('show');
+        
+        setTimeout(() => {
+          tooltip.classList.remove('show');
+        }, 2000);
+      }
+
+      function saveSubmissionDetails() {
+        const submissionData = {
+          referenceNumber: document.getElementById('referenceNumber').textContent,
+          submissionDate: document.getElementById('submissionDate').textContent,
+          responseExpected: document.getElementById('responseDate').textContent,
+          status: "pending"
+        };
+
+        localStorage.setItem('reviveWheelsSubmission', JSON.stringify(submissionData));
+      }
+    </script>
+  </body>
+</html>

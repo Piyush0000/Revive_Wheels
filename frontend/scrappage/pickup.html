@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revive Wheels</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./src/styles/style.css"/>
+    <link rel="stylesheet" href="./src/styles/pickup.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script
+    src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+    type="module"
+    ></script>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="logo-container">
+      <img src="./images/logoUpdated.png" alt="Logo" />
+      <h3>Revive Wheels</h3>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="../index.html" id="tab-style">Home</a></li>
+            <li><a href="../ev_conversion/ev_coversion_ui.html" id="tab-style">EV Conversion</a></li>
+            <li><a href="../market/market.html" id="tab-style">Buy or Sell</a></li>
+            <li class="active"><a href="#" id="tab-style">Scrappage Network</a></li>
+        </ul>            
+    </nav>
+   <div id="auth-container" class="auth-buttons"></div>
+  </header>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h2>
+                Did you know that scrapped vehicles are often a treasure trove of reusable materials? 
+                Around 85% of a car's materials can be recycled!
+            </h2>
+            <p>Select from the below options</p>
+            <div class="hero-buttons">
+              <button id="doItYourselfButton" class="green-button">Do it Yourself</button>
+              <button id="weWillHelpYouButton" class="green-button">We will help You</button>
+          </div>
+        </div>
+    
+        <div class="hero-video">
+            <video playsinline autoplay loop muted>
+                <source src="https://cdnl.iconscout.com/lottie/premium/thumb/tow-truck-animated-icon-download-in-lottie-json-gif-static-svg-file-formats--vehicle-transport-transportation-car-repair-pack-automobile-icons-8445599.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    
+    <div class="card-group">
+        <div class="card mb-3 scrap-card">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="./images/aed2efa2-796f-4333-8bf5-325e6c5a6605-123-(1)-(1)-(1)-(1)-(1)-(1)-(1)-(1)-(1)-(1)-(1).png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body" id="getValueBody">
+                  <h5 class="card-title">Scrap Value Estimator</h5>
+                  <p class="card-text">Bason on weight,condition and valuable parts</p>
+                  <button type="button" id="getValue">Get the Value</button>
+                </div>
+                <div id="valid-buffer" class="card-body">
+                  <video playsinline autoplay loop muted loop height="200px" width="200px" style="
+                    border-radius: 400px;
+                    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                    ">
+                    <source src="./images/Tick Mark.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div id="scrap-calculator" class="card-body">
+                  <div><b>Price</b> ₹0-0</div>
+                  <p style="opacity:0.6">The estimated price is subject to change based on a physical evaluation. <br/>It is calculated using the provided details, and the final amount is contingent on the vehicle's condition.</p>
+                </div>
+                <div class="card text-bg-light mb-3 change-card">
+                    <div class="card-body">
+                      <h5 class="card-title">Bring the Change</h5>
+                      <ul class="card-text">
+                        <li>
+                            <i class="fa-solid fa-star"></i>
+                            Get a great scrap price instantly
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-star"></i>
+                            Scrap benefits up to
+                            1 Lakh  
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-star"></i>
+                            Scrap via govt. registered partner 
+                        </li>
+                      </ul>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="process-section">
+        <h3>How We will Scrap Your Car</h3>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+              <div class="card">
+                <img src="https://cdn.24c.in/prod/seller-india/root/2024/09/17/e70d8158-1ccf-47fa-bc31-aea4527c4798-Car-verification.svg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Car Verification</h5>
+                  <p class="card-text">Enter your vehicle registration number so we can verify your car details longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="https://cdn.24c.in/prod/seller-india/root/2024/09/17/55ec0beb-c525-4bef-a345-a33064080509-Self-inspection.svg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Self-inspection</h5>
+                  <p class="card-text">Help us understand the condition of your car better for a better estimate</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="https://cdn.24c.in/prod/seller-india/root/2024/09/17/545c89bc-6957-48a9-af07-967584809501-Pick-up.svg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Pick up/Drop-off</h5>
+                  <p class="card-text">
+                    Pick up A registered scrap vendor will pick up your car at a time slot you choose
+                    <br/>
+                    OR
+                    <br/>
+                    Drop of at the location sent through email
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="https://cdn.24c.in/prod/seller-india/root/2024/09/17/2be22b87-2bac-461f-bc70-f9e00bd3b6b4-Payment.svg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Payment</h5>
+                  <br/>
+                  <br/>
+                  <p class="card-text">Get a secure, instant deposit into your bank account after pick up</p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="benefits-section row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <dotlottie-player
+                src="https://lottie.host/b2ed1652-fd69-439c-84af-2a0a7cd5a488/BhuRnPOuqG.lottie"
+                background="transparent"
+                speed="1"
+                loop
+                autoplay
+                ></dotlottie-player>
+            <div class="card-body">
+              <h5 class="card-title">"Your Car is Tired… Let it Rest in Peace!" ⚰️🚗</h5>
+              <p class="card-text">Scrapping old cars reduces pollution, helping forests thrive and promoting a greener environment.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <video playsinline autoplay loop muted>
+                <source src="https://cdnl.iconscout.com/lottie/premium/preview-watermark/carbon-reduction-goals-animated-icon-download-in-lottie-json-gif-static-svg-file-formats--pollution-dioxide-global-warming-set-02-pack-nature-icons-8754991.mp4" type="video/mp4">
+                Your browser does not support the video tag
+            </video>
+            <div class="card-body">
+              <h5 class="card-title">"This Car Runs on Guilt!" 😨💨</h5>
+              <p class="card-text">Recycling cars keeps materials out of landfills, reducing waste and making the planet cleaner.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <dotlottie-player
+            src="https://lottie.host/62c14fa5-95ea-422f-b103-792e553b39a7/oFLTsx8JOX.lottie"
+            background="transparent"
+            speed="1"
+            loop
+            autoplay>
+            </dotlottie-player>
+            <div class="card-body">
+              <h5 class="card-title">"Recycle for a Better Planet" 🌍</h5>
+              <p class="card-text">Every extra mile in that old clunker = more pollution. Scrap it before it guilts you into submission!</p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="footer-spacer"></div>
+    <script src="./src/scripts/pickup.js"></script>
+    <script src="../auth.js"></script> 
+</body>
+</html>

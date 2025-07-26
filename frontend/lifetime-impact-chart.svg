@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#ffffff" rx="10" ry="10"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Segoe UI, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#343a40">Lifetime Environmental Impact</text>
+  
+  <!-- Line chart for cumulative emissions over time -->
+  <!-- X and Y axes -->
+  <line x1="100" y1="400" x2="700" y2="400" stroke="#343a40" stroke-width="2"/>
+  <line x1="100" y1="400" x2="100" y2="80" stroke="#343a40" stroke-width="2"/>
+  
+  <!-- Y-axis labels and grid lines -->
+  <line x1="100" y1="400" x2="700" y2="400" stroke="#e9ecef" stroke-width="1"/>
+  <text x="95" y="405" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end" fill="#6c757d">0</text>
+  
+  <line x1="100" y1="340" x2="700" y2="340" stroke="#e9ecef" stroke-width="1"/>
+  <text x="95" y="345" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end" fill="#6c757d">10</text>
+  
+  <line x1="100" y1="280" x2="700" y2="280" stroke="#e9ecef" stroke-width="1"/>
+  <text x="95" y="285" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end" fill="#6c757d">20</text>
+  
+  <line x1="100" y1="220" x2="700" y2="220" stroke="#e9ecef" stroke-width="1"/>
+  <text x="95" y="225" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end" fill="#6c757d">30</text>
+  
+  <line x1="100" y1="160" x2="700" y2="160" stroke="#e9ecef" stroke-width="1"/>
+  <text x="95" y="165" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end" fill="#6c757d">40</text>
+  
+  <line x1="100" y1="100" x2="700" y2="100" stroke="#e9ecef" stroke-width="1"/>
+  <text x="95" y="105" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="end" fill="#6c757d">50</text>
+  
+  <text x="60" y="240" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d" transform="rotate(-90, 40, 240)">Tons of CO₂</text>
+  
+  <!-- X-axis labels -->
+  <text x="100" y="425" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="middle" fill="#6c757d">0</text>
+  <text x="220" y="425" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="middle" fill="#6c757d">2</text>
+  <text x="340" y="425" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="middle" fill="#6c757d">4</text>
+  <text x="460" y="425" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="middle" fill="#6c757d">6</text>
+  <text x="580" y="425" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="middle" fill="#6c757d">8</text>
+  <text x="700" y="425" font-family="Segoe UI, sans-serif" font-size="14" text-anchor="middle" fill="#6c757d">10</text>
+  
+  <text x="400" y="450" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c757d">Years</text>
+  
+  <!-- Lines for different vehicle types -->
+  <!-- Petrol Car Line -->
+  <polyline 
+    points="100,400 220,320 340,240 460,160 580,80 700,0" 
+    fill="none" 
+    stroke="#dc3545" 
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+  
+  <!-- Diesel Car Line -->
+  <polyline 
+    points="100,400 220,326 340,252 460,178 580,104 700,30" 
+    fill="none" 
+    stroke="#fd7e14" 
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+  
+  <!-- Converted EV Line -->
+  <polyline 
+    points="100,400 220,380 340,360 460,340 580,320 700,300" 
+    fill="none" 
+    stroke="#28a745" 
+    stroke-width="3"
+    stroke-linejoin="round"
+  />
+  
+  <!-- Data points -->
+  <!-- Petrol -->
+  <circle cx="100" cy="400" r="5" fill="#dc3545"/>
+  <circle cx="220" cy="320" r="5" fill="#dc3545"/>
+  <circle cx="340" cy="240" r="5" fill="#dc3545"/>
+  <circle cx="460" cy="160" r="5" fill="#dc3545"/>
+  <circle cx="580" cy="80" r="5" fill="#dc3545"/>
+  <circle cx="700" cy="0" r="5" fill="#dc3545"/>
+  
+  <!-- Diesel -->
+  <circle cx="100" cy="400" r="5" fill="#fd7e14"/>
+  <circle cx="220" cy="326" r="5" fill="#fd7e14"/>
+  <circle cx="340" cy="252" r="5" fill="#fd7e14"/>
+  <circle cx="460" cy="178" r="5" fill="#fd7e14"/>
+  <circle cx="580" cy="104" r="5" fill="#fd7e14"/>
+  <circle cx="700" cy="30" r="5" fill="#fd7e14"/>
+  
+  <!-- EV Conversion -->
+  <circle cx="100" cy="400" r="5" fill="#28a745"/>
+  <circle cx="220" cy="380" r="5" fill="#28a745"/>
+  <circle cx="340" cy="360" r="5" fill="#28a745"/>
+  <circle cx="460" cy="340" r="5" fill="#28a745"/>
+  <circle cx="580" cy="320" r="5" fill="#28a745"/>
+  <circle cx="700" cy="300" r="5" fill="#28a745"/>
+  
+  <!-- Legend -->
+  <line x1="600" y1="455" x2="615" y2="455" stroke="#dc3545" stroke-width="3"/>
+  <circle cx="607.5" cy="455" r="4" fill="#dc3545"/>
+  <text x="625" y="460" font-family="Segoe UI, sans-serif" font-size="14" fill="#343a40">Petrol</text>
+  
+  <line x1="600" y1="475" x2="615" y2="475" stroke="#fd7e14" stroke-width="3"/>
+  <circle cx="607.5" cy="475" r="4" fill="#fd7e14"/>
+  <text x="625" y="480" font-family="Segoe UI, sans-serif" font-size="14" fill="#343a40">Diesel</text>
+  
+  <line x1="600" y1="495" x2="615" y2="495" stroke="#28a745" stroke-width="3"/>
+  <circle cx="607.5" cy="495" r="4" fill="#28a745"/>
+  <text x="625" y="500" font-family="Segoe UI, sans-serif" font-size="14" fill="#343a40">Converted EV</text>
+</svg>

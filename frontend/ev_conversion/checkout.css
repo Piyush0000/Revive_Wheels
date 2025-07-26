@@ -1,0 +1,104 @@
+/* Re-declaring root variables for consistency */
+:root {
+  --primary-color: #28a745;
+  --primary-dark: #218838;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+}
+
+.checkout-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+.checkout-container h1 {
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.billing-details-card, .order-summary-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.billing-details-card h4, .order-summary-card h4 {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+}
+
+.order-summary-card .summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.order-summary-card .summary-item span {
+    color: #6c757d;
+}
+
+.order-summary-card .summary-item strong {
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+.order-summary-card .total {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.order-summary-card hr {
+    margin: 20px 0;
+}
+
+/* Reusing the green-button style from your main CSS */
+.green-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+  text-align: center;
+  text-decoration: none;
+}
+
+.green-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.5);
+  color: white;
+}
+
+@media (max-width: 991px) {
+    .billing-details-card {
+        margin-bottom: 30px;
+    }
+}

@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EV Conversion | Revive Wheels</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="ev_conversion_ui.css" />
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="logo-container">
+         <a class="navbar-brand" href="#">
+          <img src="../images/logo.jpeg" height="40" alt="Revive Wheels" class="me-2" />
+          Revive Wheels
+        </a>
+       
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html" id="tab-style">Home</a></li>
+          <li>
+            <a href="ev_coversion_ui.html" class="active" id="tab-style">EV Conversion</a>
+          </li>
+          <li><a href="../market/market.html" id="tab-style">Buy or Sell</a></li>
+          <li><a href="../scrappage/pickup.html" id="tab-style">Scrappage Network</a></li>
+        </ul>
+      </nav>
+      <div id="auth-container" class="auth-buttons"></div>
+    </header>
+
+    <div class="conversion-banner">
+      <h1>Convert Your Car to Electric</h1>
+      <p>
+        Breathe new life into your existing vehicle with our professional EV
+        conversion services. Save money, reduce emissions, and enjoy modern EV
+        benefits.
+      </p>
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          type="text"
+          placeholder="Search for conversion services..."
+          id="searchInput"
+        />
+      </div>
+      <div class="filter-tags">
+        <div class="filter-tag active">All Vehicles</div>
+        <div class="filter-tag active">Sedans</div>
+        <div class="filter-tag active">SUVs</div>
+        <div class="filter-tag active">Hatchbacks</div>
+        <div class="filter-tag active">Luxury</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row conversion-process" data-aos="fade-up">
+        <div class="col-md-6">
+          <h2>Our EV Conversion Process</h2>
+          <p>
+            Converting your conventional vehicle to electric is simpler than you
+            think. Our certified technicians follow a meticulous process to
+            ensure safety, performance, and reliability.
+          </p>
+
+          <ul class="mt-4">
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-success me-2"></i> Comprehensive
+              vehicle assessment
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-success me-2"></i> Customized
+              conversion plan
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-success me-2"></i> High-quality
+              components installation
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-success me-2"></i> Rigorous
+              testing and certification
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-success me-2"></i> Complete
+              documentation support
+            </li>
+          </ul>
+
+          <a href="#conversion-packages" class="green-button mt-4">
+            <i class="fa-solid fa-bolt me-2"></i> View Conversion Packages
+          </a>
+          <a href="ev_conversion_form.html" class="green-button mt-4">
+            <i class="fa-solid fa-bolt me-2"></i> Book for EV conversion
+          </a>
+        </div>
+        <div class="col-md-6 mt-4 mt-md-0">
+          <div class="conversion-diagram" id="conversionDiagram">
+            <div class="diagram-step" style="top: 50%; left: 10%" data-step="1">
+              <i class="fa-solid fa-car"></i>
+            </div>
+            <div class="diagram-step" style="top: 20%; left: 30%" data-step="2">
+              <i class="fa-solid fa-clipboard-check"></i>
+            </div>
+            <div class="diagram-step" style="top: 50%; left: 50%" data-step="3">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <div class="diagram-step" style="top: 20%; left: 70%" data-step="4">
+              <i class="fa-solid fa-battery-full"></i>
+            </div>
+            <div class="diagram-step" style="top: 50%; left: 90%" data-step="5">
+              <i class="fa-solid fa-road"></i>
+            </div>
+
+            <div
+              class="diagram-connector"
+              style="width: 20%; top: 50%; left: 15%"
+              data-connector="1-2"
+            ></div>
+            <div
+              class="diagram-connector"
+              style="width: 28%; top: 35%; left: 30%; transform: rotate(60deg)"
+              data-connector="2-3"
+            ></div>
+            <div
+              class="diagram-connector"
+              style="width: 28%; top: 35%; left: 50%; transform: rotate(-60deg)"
+              data-connector="3-4"
+            ></div>
+            <div
+              class="diagram-connector"
+              style="width: 20%; top: 50%; left: 70%"
+              data-connector="4-5"
+            ></div>
+
+            <div class="diagram-info" data-info="1">
+              <h5>Vehicle Assessment</h5>
+              <p>
+                We thoroughly inspect your vehicle to determine compatibility
+                and create a customized conversion plan.
+              </p>
+            </div>
+            <div class="diagram-info" data-info="2">
+              <h5>Approval & Planning</h5>
+              <p>
+                We discuss the conversion options, costs, and timeline to ensure
+                the plan meets your needs.
+              </p>
+            </div>
+            <div class="diagram-info" data-info="3">
+              <h5>Conversion Process</h5>
+              <p>
+                Our certified technicians perform the conversion using
+                high-quality components and precise engineering.
+              </p>
+            </div>
+            <div class="diagram-info" data-info="4">
+              <h5>Battery Installation</h5>
+              <p>
+                We install high-performance battery packs with optimal range and
+                charging capabilities.
+              </p>
+            </div>
+            <div class="diagram-info" data-info="5">
+              <h5>Testing & Delivery</h5>
+              <p>
+                Every converted vehicle undergoes rigorous testing before being
+                returned to you with full documentation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-section" data-aos="fade-up">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-6 mb-4 mb-md-0">
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="fa-solid fa-car-burst"></i>
+                </div>
+                <div class="stat-number" id="conversionCount">1200+</div>
+                <div class="stat-title">Vehicles Converted</div>
+              </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4 mb-md-0">
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="fa-solid fa-leaf"></i>
+                </div>
+                <div class="stat-number" id="emissionCount">4500</div>
+                <div class="stat-title">Tons CO₂ Saved</div>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="fa-solid fa-bolt"></i>
+                </div>
+                <div class="stat-number" id="rangeCount">150-300</div>
+                <div class="stat-title">KM Range</div>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="fa-solid fa-user-check"></i>
+                </div>
+                <div class="stat-number" id="satisfactionCount">98%</div>
+                <div class="stat-title">Customer Satisfaction</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vehicle-selector" data-aos="fade-up">
+        <h4 class="mb-4">Select Your Vehicle Type</h4>
+        <div class="selector-tabs">
+          <div class="selector-tab active" data-tab="cars">Cars</div>
+          <div class="selector-tab" data-tab="suvs">SUVs</div>
+          <div class="selector-tab" data-tab="hatchbacks">Hatchbacks</div>
+          <div class="selector-tab" data-tab="luxury">Luxury</div>
+        </div>
+
+        <div class="selector-content active" id="cars">
+          <div class="vehicle-grid">
+            <div class="vehicle-option">
+              <img src="../images/maruti_suzuki.webp" alt="Maruti Swift" />
+              <div>Maruti Swift</div>
+            </div>
+            <div class="vehicle-option">
+              <img src="../images/i20.jpg" alt="Hyundai i20" />
+              <div>Hyundai i20</div>
+            </div>
+            <div class="vehicle-option">
+              <img src="../images/indica.jpg" alt="Tata Indica" />
+              <div>Tata Indica</div>
+            </div>
+            <div class="vehicle-option">
+              <img src="../images/city.jpg" alt="Honda City" />
+              <div>Honda City</div>
+            </div>
+            <div class="vehicle-option">
+              <img src="../images/etios.jpg" alt="Toyota Etios" />
+              <div>Toyota Etios</div>
+            </div>
+            <div class="vehicle-option">
+              <img src="../images/verna.jpg" alt="Hyundai Verna" />
+              <div>Hyundai Verna</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="selector-content" id="suvs">
+          <div class="vehicle-grid">
+            <div class="vehicle-option">
+              <img src="../images/scorpio.jpg" alt="Mahindra Scorpio" />
+              <div>Mahindra Scorpio</div>
+            </div>
+            <div class="vehicle-option">
+              <img src="../images/safari.jpg" alt="Tata Safari" />
+              <div>Tata Safari</div>
+            </div>
+            <div class="vehicle-option">
+              <img src="../images/creta.jpg" alt="Hyundai Creta" />
+              <div>Hyundai Creta</div>
+            </div>
+            <div class="vehicle-option">
+              <img src="../images/seltos.jpg" alt="Kia Seltos" />
+              <div>Kia Seltos</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="selector-content" id="hatchbacks">
+          <div class="vehicle-grid">
+            <div class="vehicle-option">
+              <img src="../images/alto.webp" alt="Maruti Alto" />
+              <div>Maruti Alto</div>
+            </div>
+            <div class="vehicle-option">
+              <img src="../images/tiago.jpg" alt="Tata Tiago" />
+              <div>Tata Tiago</div>
+            </div>
+            <div class="vehicle-option">
+              <img src="../images/santro.jpg" alt="Hyundai Santro" />
+              <div>Hyundai Santro</div>
+            </div>
+            <div class="vehicle-option">
+              <img src="../images/kwid.jpg" alt="Renault Kwid" />
+              <div>Renault Kwid</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="selector-content" id="luxury">
+          <div class="vehicle-grid">
+            <div class="vehicle-option">
+              <img src="../images/bmw.jpg" alt="BMW 3 Series" />
+              <div>BMW 3 Series</div>
+            </div>
+            <div class="vehicle-option">
+              <img src="../images/audi.jpg" alt="Audi A4" />
+              <div>Audi A4</div>
+            </div>
+            <div class="vehicle-option">
+              <img src="../images/mercedes.jpg" alt="Mercedes C-Class" />
+              <div>Mercedes C-Class</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="conversion-packages"
+        id="conversion-packages"
+        data-aos="fade-up"
+      >
+        <h2 class="text-center mb-5">EV Conversion Packages</h2>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="package-card">
+              <h5>
+                <i class="fa-solid fa-bolt me-2 text-success"></i> City Commuter
+              </h5>
+              <p>
+                Perfect for daily city driving with moderate range requirements
+                and budget-friendly pricing.
+              </p>
+              <div class="mb-3">
+                <span class="badge bg-success">150-180 km Range</span>
+                <span class="badge bg-success">3-4 Week Process</span>
+              </div>
+              <div class="price-tag">₹2.5 - 3.5 Lakhs</div>
+              <ul class="mb-4">
+                <li class="mb-2">
+                  <i class="fa-solid fa-check text-success me-2"></i> 20-25 kWh
+                  Battery
+                </li>
+                <li class="mb-2">
+                  <i class="fa-solid fa-check text-success me-2"></i> 3.3 kW AC
+                  Charging
+                </li>
+                <li class="mb-2">
+                  <i class="fa-solid fa-check text-success me-2"></i> Basic
+                  Digital Display
+                </li>
+                <li class="mb-2">
+                  <i class="fa-solid fa-check text-success me-2"></i> 2 Year
+                  Warranty
+                </li>
+              </ul>
+              <a href="./submit.html" class="green-button py-2 px-3 mt-0 w-100 text-center" onclick="alert('Consultation booked')">
+                <i class="fa-solid fa-calendar-check me-2"></i> Book
+                Consultation
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="package-card">
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="badge bg-warning text-dark">Most Popular</span>
+              </div>
+              <h5>
+                <i class="fa-solid fa-bolt me-2 text-success"></i> Balanced
+                Performer
+              </h5>
+              <p>
+                Our best-selling package offering great range and performance at
+                a competitive price.
+              </p>
+              <div class="mb-3">
+                <span class="badge bg-success">200-250 km Range</span>
+                <span class="badge bg-success">4-5 Week Process</span>
+              </div>
+              <div class="price-tag">₹3.5 - 5 Lakhs</div>
+              <ul class="mb-4">
+                <li class="mb-2">
+                  <i class="fa-solid fa-check text-success me-2"></i> 30-35 kWh
+                  Battery
+                </li>
+                <li class="mb-2">
+                  <i class="fa-solid fa-check text-success me-2"></i> 7.4 kW AC
+                  Charging
+                </li>
+                <li class="mb-2">
+                  <i class="fa-solid fa-check text-success me-2"></i> Advanced
+                  Digital Display
+                </li>
+                <li class="mb-2">
+                  <i class="fa-solid fa-check text-success me-2"></i> 3 Year
+                  Warranty
+                </li>
+                <li class="mb-2">
+                  <i class="fa-solid fa-check text-success me-2"></i>
+                  Regenerative Braking
+                </li>
+              </ul>
+              <a href="./submit.html" class="green-button py-2 px-3 mt-0 w-100 text-center" onclick="alert('Consultation booked')">
+                <i class="fa-solid fa-calendar-check me-2"></i> Book
+                Consultation
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="package-card">
+              <h5>
+                <i class="fa-solid fa-bolt me-2 text-success"></i> Premium
+                Long-Range
+              </h5>
+              <p>
+                Top-tier conversion with maximum range, performance, and luxury
+                features.
+              </p>
+              <div class="mb-3">
+                <span class="badge bg-success">250-300+ km Range</span>
+                <span class="badge bg-success">5-6 Week Process</span>
+              </div>
+              <div class="price-tag">₹5 - 7 Lakhs</div>
+              <ul class="mb-4">
+                <li class="mb-2">
+                  <i class="fa-solid fa-check text-success me-2"></i> 40-50 kWh
+                  Battery
+                </li>
+                <li class="mb-2">
+                  <i class="fa-solid fa-check text-success me-2"></i> 11 kW AC +
+                  DC Fast Charge
+                </li>
+                <li class="mb-2">
+                  <i class="fa-solid fa-check text-success me-2"></i> Premium
+                  Touchscreen Display
+                </li>
+                <li class="mb-2">
+                  <i class="fa-solid fa-check text-success me-2"></i> 5 Year
+                  Warranty
+                </li>
+                <li class="mb-2">
+                  <i class="fa-solid fa-check text-success me-2"></i> Smart
+                  Connectivity
+                </li>
+                <li class="mb-2">
+                  <i class="fa-solid fa-check text-success me-2"></i>
+                  Performance Mode
+                </li>
+              </ul>
+              <a href="./submit.html" class="green-button py-2 px-3 mt-0 w-100 text-center" onclick="alert('Consultation booked')">
+                <i class="fa-solid fa-calendar-check me-2"></i> Book
+                Consultation
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <a href="#" class="green-button">
+            <i class="fa-solid fa-arrow-right me-2"></i> View Custom Packages
+          </a>
+        </div>
+      </div>
+
+      <div class="conversion-benefits" data-aos="fade-up">
+        <div class="row">
+          <div class="col-md-6">
+            <h2 class="mb-4">Benefits of EV Conversion</h2>
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+              </div>
+              <div>
+                <h5>Cost Effective</h5>
+                <p>
+                  Save 40-60% compared to buying a new EV while keeping your
+                  familiar vehicle.
+                </p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <i class="fa-solid fa-leaf"></i>
+              </div>
+              <div>
+                <h5>Eco Friendly</h5>
+                <p>
+                  Reduce your carbon footprint by eliminating tailpipe emissions
+                  completely.
+                </p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <i class="fa-solid fa-gauge-high"></i>
+              </div>
+              <div>
+                <h5>Better Performance</h5>
+                <p>
+                  Instant torque delivery provides quicker acceleration and
+                  smoother driving.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+              </div>
+              <div>
+                <h5>Lower Maintenance</h5>
+                <p>
+                  No more oil changes, fewer moving parts, and reduced wear and
+                  tear.
+                </p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div>
+                <h5>Energy Efficient</h5>
+                <p>
+                  Electric motors are 3-4 times more efficient than internal
+                  combustion engines.
+                </p>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <div class="benefit-icon">
+                <i class="fa-solid fa-road"></i>
+              </div>
+              <div>
+                <h5>Future Proof</h5>
+                <p>
+                  Avoid future restrictions on petrol/diesel vehicles in urban
+                  areas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonials" data-aos="fade-up">
+        <h2 class="text-center mb-5">What Our Customers Say</h2>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="testimonial-card">
+              <p>
+                "Converting my 2012 Swift to electric was the best decision! The
+                car feels brand new with instant acceleration and I'm saving
+                ₹5000/month on fuel. The Revive Wheels team made the process
+                seamless."
+              </p>
+              <div class="testimonial-author">
+                <img src="../images/user.png" alt="User" />
+                <div class="author-details">
+                  <p class="author-name">Rajesh Kumar</p>
+                  <p class="author-title">Delhi</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="testimonial-card">
+              <p>
+                "My converted Honda City gets 220km on a charge which is perfect
+                for my daily commute. The conversion cost was half of a new EV
+                and I got to keep a car I love. Highly recommend!"
+              </p>
+              <div class="testimonial-author">
+                <img src="../images/user.png" alt="User" />
+                <div class="author-details">
+                  <p class="author-name">Priya Menon</p>
+                  <p class="author-title">Bangalore</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="testimonial-card">
+              <p>
+                "The premium package conversion on my Scorpio exceeded
+                expectations. Off-road capability is actually better now with
+                the instant torque, and I can charge at home overnight."
+              </p>
+              <div class="testimonial-author">
+                <img src="../images/user.png" alt="User" />
+                <div class="author-details">
+                  <p class="author-name">Vikram Singh</p>
+                  <p class="author-title">Mumbai</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-section" data-aos="fade-up">
+        <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+          <div class="faq-item">
+            <div
+              class="faq-header"
+              id="headingOne"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              Is EV conversion legal in India?
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div
+              id="collapseOne"
+              class="collapse show"
+              aria-labelledby="headingOne"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="faq-body">
+                Yes, EV conversions are legal in India when performed by
+                certified workshops. The converted vehicle needs to be certified
+                by an approved testing agency (like ARAI or ICAT) and registered
+                as an electric vehicle with your local RTO. We handle all the
+                certification and paperwork as part of our conversion service.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div
+              class="faq-header collapsed"
+              id="headingTwo"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              How long does the conversion process take?
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div
+              id="collapseTwo"
+              class="collapse"
+              aria-labelledby="headingTwo"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="faq-body">
+                The conversion typically takes 3-6 weeks depending on the
+                package you choose and the complexity of your vehicle. This
+                includes the physical conversion, testing, and certification
+                process. We provide a loaner vehicle during this period for
+                basic packages and above.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div
+              class="faq-header collapsed"
+              id="headingThree"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              What is the lifespan of a converted EV?
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div
+              id="collapseThree"
+              class="collapse"
+              aria-labelledby="headingThree"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="faq-body">
+                Our battery systems are designed for 1500-2000 charge cycles
+                while maintaining 80% capacity. For average usage, this
+                translates to 8-10 years of service. The electric motor
+                typically lasts 15+ years with minimal maintenance. We offer
+                battery replacement programs when the time comes.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div
+              class="faq-header collapsed"
+              id="headingFour"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseFour"
+              aria-expanded="false"
+              aria-controls="collapseFour"
+            >
+              Can I convert any vehicle to electric?
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div
+              id="collapseFour"
+              class="collapse"
+              aria-labelledby="headingFour"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="faq-body">
+                Most vehicles under 1500kg can be converted, but some are better
+                suited than others. During our free assessment, we evaluate your
+                vehicle's structure, weight distribution, and available space
+                for batteries. Generally, lighter vehicles with manual
+                transmissions convert most successfully.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div
+              class="faq-header collapsed"
+              id="headingFive"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseFive"
+              aria-expanded="false"
+              aria-controls="collapseFive"
+            >
+              What about servicing and repairs after conversion?
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+            <div
+              id="collapseFive"
+              class="collapse"
+              aria-labelledby="headingFive"
+              data-bs-parent="#faqAccordion"
+            >
+              <div class="faq-body">
+                We provide training to select service centers across major
+                cities to handle maintenance on converted EVs. The electric
+                drivetrain requires significantly less maintenance than
+                combustion engines - primarily just brake fluid, coolant, and
+                tire rotations. We also offer annual checkup packages.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-dark text-light py-5 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4 mb-md-0">
+            <h5>Revive Wheels</h5>
+            <p class="mt-3">
+              Making sustainable mobility accessible through EV conversions,
+              responsible vehicle disposal, and pre-owned EV marketplace.
+            </p>
+            <div class="mt-3">
+              <i class="fa-brands fa-facebook fa-lg me-3"></i>
+              <i class="fa-brands fa-twitter fa-lg me-3"></i>
+              <i class="fa-brands fa-instagram fa-lg me-3"></i>
+              <i class="fa-brands fa-linkedin fa-lg"></i>
+            </div>
+          </div>
+          <div class="col-md-2 mb-4 mb-md-0">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled mt-3">
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none">Home</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none">About Us</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none">Services</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 mb-4 mb-md-0">
+            <h5>Services</h5>
+            <ul class="list-unstyled mt-3">
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >EV Conversion</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >Buy & Sell EVs</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >Vehicle Scrappage</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-light text-decoration-none"
+                  >EV Charging Solutions</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5>Contact Us</h5>
+            <ul class="list-unstyled mt-3">
+              <li class="mb-2">
+                <i class="fa-solid fa-location-dot me-2"></i> 123 Green Street,
+                Bengaluru
+              </li>
+              <li class="mb-2">
+                <i class="fa-solid fa-phone me-2"></i> +91 9876543210
+              </li>
+              <li class="mb-2">
+                <i class="fa-solid fa-envelope me-2"></i> info@revivewheels.com
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="my-4 bg-light" />
+        <div class="row">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <p class="mb-0">&copy; 2025 Revive Wheels. All rights reserved.</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <a href="#" class="text-light text-decoration-none me-3"
+              >Privacy Policy</a
+            >
+            <a href="#" class="text-light text-decoration-none me-3"
+              >Terms of Service</a
+            >
+            <a href="#" class="text-light text-decoration-none">FAQ</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      integrity="sha512-16esztaSRplJROstbIXwJJhzKt72BU3KgVj3X0rYlgDod7qJi/lMoEKRTe5GFwCVJPSZiWBdRAMNpBbVbqLrHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/CountUp.js/2.5.0/countUp.min.js"
+      integrity="sha512-E0Q9sOMVzYV04rEr8IZcEutVHlo8sgPkMXWUjbgqYSlKQeVTG9S1aWLI7Cz1jKLFBn4avlv5bN9XJz/sY5RqUQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="ev_conversion_ui.js"></script>
+  </body>
+</html>

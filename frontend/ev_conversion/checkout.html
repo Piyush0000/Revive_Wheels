@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Revive Wheels</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="ev_conversion_ui.css" />
+    <link rel="stylesheet" href="checkout.css" />
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="logo-container">
+            <a class="navbar-brand" href="#">
+                <img src="../images/logo.jpeg" height="40" alt="Revive Wheels" class="me-2" />
+                Revive Wheels
+            </a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html" id="tab-style">Home</a></li>
+                <li><a href="ev_coversion_ui.html" class="active" id="tab-style">EV Conversion</a></li>
+                <li><a href="../market/market.html" id="tab-style">Buy or Sell</a></li>
+                <li><a href="../scrappage/pickup.html" id="tab-style">Scrappage Network</a></li>
+            </ul>
+        </nav>
+        <div id="auth-container" class="auth-buttons"></div>
+    </header>
+
+    <div class="container my-5">
+        <div class="checkout-container">
+            <h1 class="text-center mb-4">Complete Your Booking</h1>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="billing-details-card">
+                        <h4>Billing Information</h4>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" required />
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" required />
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="address" required />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5 mb-3">
+                                    <label for="city" class="form-label">City</label>
+                                    <input type="text" class="form-control" id="city" required />
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="state" class="form-label">State</label>
+                                    <input type="text" class="form-control" id="state" required />
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="zip" class="form-label">Zip Code</label>
+                                    <input type="text" class="form-control" id="zip" required />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="order-summary-card">
+                        <h4>Order Summary</h4>
+                        <div class="summary-item">
+                            <span>Selected Vehicle:</span>
+                            <strong id="selected-vehicle">Not Selected</strong>
+                        </div>
+                        <div class="summary-item">
+                            <span>Conversion Package:</span>
+                            <strong>Balanced Performer</strong>
+                        </div>
+                        <hr />
+                        <div class="summary-item">
+                            <span>Subtotal:</span>
+                            <span>₹4,00,000</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Taxes (GST):</span>
+                            <span>₹72,000</span>
+                        </div>
+                        <hr />
+                        <div class="summary-item total">
+                            <span>Total Amount:</span>
+                            <strong>₹4,72,000</strong>
+                        </div>
+                        <button class="green-button w-100 mt-4">
+                            Proceed to Payment
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+           </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="checkout.js"></script>
+</body>
+</html>
