@@ -20,6 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   const submitButton = document.getElementById("submitButton");
 
+  // Get modal elements
+  const verificationModal = document.getElementById("verificationModal");
+  const userEmailSpan = document.getElementById("userEmail");
+
   // Toggle password visibility
   togglePassword.addEventListener("click", function () {
     password.type = password.type === "password" ? "text" : "password";
@@ -81,30 +85,32 @@ document.addEventListener("DOMContentLoaded", function () {
           options: {
             data: {
               full_name: fullName.value.trim(),
-            }
-          }
+            },
+          },
         });
 
         if (error) {
           throw error;
         }
 
-        successMessage.textContent = `Welcome to Revive Wheels, ${fullName.value.trim()}! Please check your email to confirm your account.`;
-        successMessage.style.display = "block";
-        form.reset();
-
-        setTimeout(() => {
-          window.location.href = "signin.html";
-        }, 3000);
+        // --- NEW LOGIC ---
+        // On success, show the verification modal instead of the old message
+        if (data.user) {
+          userEmailSpan.textContent = email.value.trim();
+          verificationModal.style.display = "flex"; // Show the modal
+          form.reset();
+        }
+        
       } catch (error) {
         console.error("Signup error:", error);
-        if (error.message.includes("already registered")) {
-            emailError.textContent = "This email is already registered";
-            emailError.style.display = "block";
+        if (error.message && error.message.includes("User already registered")) {
+          emailError.textContent = "This email is already registered.";
+          emailError.style.display = "block";
         } else {
-            successMessage.textContent = `Error: ${error.message}`;
-            successMessage.style.color = "#ff4444";
-            successMessage.style.display = "block";
+          // Display a generic error message
+          confirmPasswordError.textContent =
+            "An unexpected error occurred. Please try again.";
+          confirmPasswordError.style.display = "block";
         }
       } finally {
         submitButton.disabled = false;
